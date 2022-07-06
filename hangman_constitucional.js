@@ -17,23 +17,21 @@ let articleIndex = Math.floor(Math.random() * articlesEl.length);
 function showDescription(description) {
     cardText.innerHTML = description;
 }
+setTitle(articlesEl[articleIndex][0]);
 showDescription(articlesEl[articleIndex][1]);
 function setTitle(title) {
-    const recipient = document.createElement('h2');
-    recipient.innerHTML = `
-        ${title.split('').map(letter => {
-            const letterRecipient = document.createElement('span');
-            letterRecipient.innerHTML = letter;
-            if(correctLetters.includes(letter)){
-                letterRecipient.classList.add('show-letter');
-            }
-    }).join('')}
+    const wordRecipient = document.createElement('h2');
+    wordRecipient.innerHTML = `
+        ${
+            title.split('')
+            .map(letter => {
+                const letterEl = document.createElement('span');
+                letterEl.classList.add('letter');
+                letterEl.innerHTML = letter;
+            })
+        }
     `;
-    cardTitle.appendChild(recipient);
-    const innerWord=cardTitle.innerText.replace(/\n/g,'');
-    if(innerWord===articlesEl[articleIndex][0]){
-        notificationEl.innerHTML = '<span class="badge badge-success">Correcto Apruebo</span>';
-    }
+    cardTitle.appendChild(wordRecipient);
 }
 function showNotification(message) {
     notificationEl.classList.add('show');
@@ -71,13 +69,6 @@ window.addEventListener('keydown', e => {
         letter==='y'||
         letter==='z'
     ){
-        if(articlesEl[articleIndex][0].includes(letter)&&!correctLetters.includes(letter)){
-            correctLetters.push(letter);
-            setTitle(articlesEl[articleIndex][0],articlesEl[articleIndex][1]);
-        }else{
-            wrongLetters.push(letter);
-            showNotification(`${letter} no es una letra`);
-        }
+
     }
 });
-setTitle(articlesEl[articleIndex][0]);
