@@ -7,7 +7,7 @@ body{
 }
 .container-game{
     width: 80%;
-    height: 60%;
+    height: 50%;
     border: 1px solid rgb(232, 232, 232);
     border-radius: 3px;
     display: flex;
@@ -26,4 +26,21 @@ body{
 }
 #card-title{
     height: 40px;
+}
+.letter{
+    height: 30px;
+    width: 24px;
+    font-size: 25px;
+    border: 1px solid rgb(232, 232, 232);
+    display: inline-flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+.notification{
+    height: 30px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
