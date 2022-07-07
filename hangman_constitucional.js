@@ -6,8 +6,17 @@ const articlesEl=[
     [
         'republica',
         '2° Se constituye como una república solidaria.'
+    ],
+    [
+        'igualdad',
+        '2° Reconoce como valores intrínsecos e irrenunciables la dignidad, lalibertad, la igualdad sustantiva de los seres humanos y su relación indisoluble con la naturaleza.'
+    ],
+    [
+        'individuales',
+        '3° La protección y garantía de los derechos humanos individuales y colectivos son el fundamento del Estado y orientan toda su actividad.'
     ]
 ];
+const descriptionEl = document.querySelector('.description');
 const wordEl = document.getElementById('word');
 const wrongLettersEl = document.getElementById('wrong-letters');
 const playAgainBtn = document.getElementById('play-button');
@@ -23,6 +32,10 @@ const correctLetters = [];
 const wrongLetters = [];
 
 // Show hidden word
+function showDescription() {
+    descriptionEl.innerText = articlesEl[Math.floor(Math.random() * articlesEl.length)][1];
+}
+showDescription();
 function displayWord() {
   wordEl.innerHTML = `
     ${selectedWord
@@ -50,7 +63,7 @@ function updateWrongLettersEl() {
   // Display wrong letters
   wrongLettersEl.innerHTML = `
     ${wrongLetters.length > 0 ? '<p>Wrong</p>' : ''}
-    ${wrongLetters.map(letter => `<span>${letter}</span>`)}
+    ${wrongLetters.map(letter => `<span>${letter}</span>`).join('')}
   `;
 
   // Display parts
@@ -112,8 +125,7 @@ playAgainBtn.addEventListener('click', () => {
   correctLetters.splice(0);
   wrongLetters.splice(0);
 
-  selectedWord = words[Math.floor(Math.random() * words.length)];
-
+  selectedWord = articlesEl[Math.floor(Math.random() * articlesEl.length)][0];
   displayWord();
 
   updateWrongLettersEl();
