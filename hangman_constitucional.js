@@ -16,12 +16,12 @@ const articlesEl=[
         '5° 1 Chile reconoce la coexistencia de diversos pueblos y naciones en el marco de la unidad del Estado.'
     ],
     [
-        'indígenas',
+        'indigenas',
         '5° 2 Son pueblos y naciones indígenas preexistentes los Mapuche, Aymara,  etc...'
     ],
     [
         'garantizar',
-        '5° 3 Es deber del Estado respetar, promover, proteger y garantizar el ejercicio de la libre determinación, los derechos colectivos e individuales de los cuales '
+        '5° 3 Es deber del Estado respetar, promover, proteger y garantizar el ejercicio de la libre determinación, los derechos colectivos e individuales'
     ],
     [
         'mujeres',
@@ -32,7 +32,7 @@ const articlesEl=[
         '6° 2 Todos los órganos colegiados del Estado, los autónomos constitucionales, los superiores y directivos de la Administración'
     ],
     [
-        'autónomas',
+        'autonomas',
         '7° Chile está conformado por entidades territoriales autónomas y territorios especiales'
     ],
     [
@@ -40,7 +40,7 @@ const articlesEl=[
         '8° Las personas y los pueblos son interdependientes con la naturaleza y forman con ella un conjunto inseparable.'
     ],
     [
-        'religión',
+        'religion',
         '9° El Estado es laico. En Chile se respeta y garantiza la libertad de religión y de creencias espirituales.'
     ],
     [
@@ -61,7 +61,7 @@ let selectedWord = articlesEl[randomIndex][0];
 let selectedDescription = articlesEl[randomIndex][1];
 const correctLetters = [];
 const wrongLetters = [];
-
+let audioNo=new Audio('no.mp3');
 // Show hidden word
 function showDescription(description) {
     descriptionEl.innerText = description;
@@ -79,9 +79,7 @@ function displayWord(word) {
       )
       .join('')}
   `;
-
   const innerWord = wordEl.innerText.replace(/\n/g, '');
-
   if (innerWord === selectedWord) {
     finalMessage.innerText = 'Ganaste! 😃';
     popup.style.display = 'flex';
@@ -165,3 +163,7 @@ playAgainBtn.addEventListener('click', () => {
 });
 displayWord(selectedWord);
 showDescription(selectedDescription);
+document.addEventListener('click', () => { 
+  audioNo.play();
+  audioNo.volume=0.4;
+});
