@@ -110,6 +110,7 @@
     display: none;
     align-items: center;
     justify-content: center;
+    z-index: 10;
   }
   .popup {
     background: #34495e;
