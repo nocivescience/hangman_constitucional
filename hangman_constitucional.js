@@ -2,7 +2,7 @@ const articlesEl=[
     [
         'democratico',
         '1° Chile es un Estado social y democrático de derecho. Es plurinacional, intercultural, regional y ecológico.'
-    ],
+    ], 
     [
         'republica',
         '2° Se constituye como una república solidaria.'
